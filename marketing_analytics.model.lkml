@@ -8,46 +8,33 @@ include: "/views/*.view.lkml"                # include all views in the views/ f
 # # and define the joins that connect them together.
 #
 explore: customers {
+  join: transactions {
+    sql_on: ${customers.customer_id} = ${transactions.customer_id} ;;
+    relationship: one_to_many
+  }
+
   join: interactions {
-    sql_on: ${customers.customer_id} = ${interactions.interaction_id} ;;
-    relationship: one_to_one
-  }
-
-  join: transactions {
-    sql_on: ${customers.customer_id} = ${transactions.transaction_id} ;;
+    sql_on: ${customers.customer_id} = ${interactions.customer_id} ;;
     relationship: one_to_many
   }
-}
 
+  join: products {
+    sql_on: ${transactions.product_id} = ${products.product_id} ;;
+    relationship: many_to_one
+  }
 
-explore: products {
-  join: transactions {
-    sql_on: ${products.product_id} = ${transactions.transaction_id} ;;
-    relationship: one_to_many
+  join: stores {
+    sql_on: ${transactions.store_id} = ${stores.store_id} ;;
+    relationship: many_to_one
   }
 
   join: campaigns {
-    sql_on: ${products.product_id} = ${campaigns.campaign_id} ;;
+    sql_on: ${interactions.campaign_id} = ${campaigns.campaign_id} ;;
     relationship: one_to_many
   }
 
-}
-
-explore: campaigns {
   join: social_media_engagement {
-    sql_on: ${campaigns.campaign_id} = ${social_media_engagement.engagement_id} ;;
-    relationship: one_to_many
-  }
-
-  join: interactions {
-    sql_on: ${campaigns.campaign_id} = ${interactions.interaction_id} ;;
-    relationship: one_to_one
-  }
-}
-
-explore: stores {
-  join: transactions {
-    sql_on: ${stores.store_id} = ${transactions.transaction_id} ;;
+    sql_on: ${campaigns.campaign_id} = ${social_media_engagement.campaign_id} ;;
     relationship: one_to_many
   }
 }
