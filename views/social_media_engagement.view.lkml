@@ -1,12 +1,12 @@
 view: social_media_engagement {
-  sql_table_name: `sqsh-developer-pocs.marketing_analytics.social_media_engagement` ;;
+  sql_table_name: sqsh-developer-pocs.marketing_analytics.social_media_engagement ;;
 
   dimension: campaign_id {
     type: number
     # hidden: yes
     sql: ${TABLE}.campaign_id ;;
   }
-  dimension: comments {
+  measure: total_comments {
     type: number
     sql: ${TABLE}.comments ;;
   }
@@ -19,7 +19,7 @@ view: social_media_engagement {
     type: number
     sql: ${TABLE}.engagement_id ;;
   }
-  dimension: likes {
+  measure: total_likes {
     type: number
     sql: ${TABLE}.likes ;;
   }
@@ -27,7 +27,7 @@ view: social_media_engagement {
     type: string
     sql: ${TABLE}.post_id ;;
   }
-  dimension: shares {
+  measure: total_shares {
     type: number
     sql: ${TABLE}.shares ;;
   }

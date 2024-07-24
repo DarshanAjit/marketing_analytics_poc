@@ -1,5 +1,5 @@
 view: products {
-  sql_table_name: `sqsh-developer-pocs.marketing_analytics.products` ;;
+  sql_table_name: sqsh-developer-pocs.marketing_analytics.products ;;
   drill_fields: [product_id]
 
   dimension: product_id {
@@ -26,5 +26,17 @@ view: products {
   measure: count {
     type: count
     drill_fields: [product_id, name, transactions.count]
+  }
+  measure: product_count{
+    type: number
+    sql: count(${product_id}) ;;
+  }
+  measure: total_cost{
+    type: sum
+    sql: ${price} ;;
+  }
+  measure: average_cost{
+    type: average
+    sql: ${price} ;;
   }
 }

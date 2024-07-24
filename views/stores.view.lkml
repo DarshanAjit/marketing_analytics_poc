@@ -1,5 +1,5 @@
 view: stores {
-  sql_table_name: `sqsh-developer-pocs.marketing_analytics.stores` ;;
+  sql_table_name: sqsh-developer-pocs.marketing_analytics.stores ;;
   drill_fields: [store_id]
 
   dimension: store_id {

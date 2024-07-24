@@ -1,5 +1,5 @@
 view: customers {
-  sql_table_name: `sqsh-developer-pocs.marketing_analytics.customers` ;;
+  sql_table_name: sqsh-developer-pocs.marketing_analytics.customers ;;
   drill_fields: [customer_id]
 
   dimension: customer_id {
@@ -30,4 +30,9 @@ view: customers {
     type: count
     drill_fields: [customer_id, last_name, first_name, interactions.count, transactions.count]
   }
+  measure: customer_count{
+    type: number
+    sql: count(${customer_id}) ;;
+  }
+
 }

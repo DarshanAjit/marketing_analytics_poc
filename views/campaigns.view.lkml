@@ -37,4 +37,37 @@ view: campaigns {
     type: count
     drill_fields: [campaign_id, name, interactions.count, social_media_engagement.count]
   }
+  measure: total_budget_used {
+    type: sum
+    sql: ${budget} ;;
+    label: "Total Budget Used"
+  }
+
+  measure: average_budget_per_campaign {
+    type: average
+    sql: ${budget} ;;
+    label: "Average Budget per Campaign"
+  }
+
+  measure: number_of_campaigns {
+    type: number
+    sql: count(${campaign_id}) ;;
+    label: "Number of Campaigns"
+  }
+
+  measure: campaign_duration_days {
+    type: number
+    sql: DATEDIFF(${end_date}, ${start_date}) ;;
+    label: "Campaign Duration (Days)"
+  }
+
+  measure: cost_per_day {
+    type: number
+    sql: ${total_budget_used} / NULLIF(${campaign_duration_days}, 0) ;;
+    label: "Daily Cost of Campaign"
+  }
+
+  set: details {
+    fields: [campaign_id, name, type, budget, start_date, end_date, count, total_budget_used, average_budget_per_campaign, number_of_campaigns, campaign_duration_days, cost_per_day]
+  }
 }

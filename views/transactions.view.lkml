@@ -1,5 +1,5 @@
 view: transactions {
-  sql_table_name: `sqsh-developer-pocs.marketing_analytics.transactions` ;;
+  sql_table_name: sqsh-developer-pocs.marketing_analytics.transactions ;;
   drill_fields: [transaction_id]
 
   dimension: transaction_id {
@@ -39,18 +39,34 @@ view: transactions {
     type: count
     drill_fields: [detail*]
   }
+  measure: total_cost {
+    type: sum
+    sql: ${price} ;;
+  }
+  measure: average_cost {
+    type: average
+    sql: ${price} ;;
+  }
+  measure: total_quantity {
+    type: sum
+    sql: ${quantity} ;;
+  }
+  measure: average_quantity {
+    type: average
+    sql: ${price} ;;
+  }
 
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [
-	transaction_id,
-	stores.store_id,
-	products.product_id,
-	products.name,
-	customers.last_name,
-	customers.customer_id,
-	customers.first_name
-	]
+      transaction_id,
+      stores.store_id,
+      products.product_id,
+      products.name,
+      customers.last_name,
+      customers.customer_id,
+      customers.first_name
+    ]
   }
 
 }
