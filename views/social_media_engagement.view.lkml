@@ -2,12 +2,12 @@ view: social_media_engagement {
   sql_table_name: sqsh-developer-pocs.marketing_analytics.social_media_engagement ;;
 
   dimension: campaign_id {
+    primary_key: yes
     type: number
-    # hidden: yes
     sql: ${TABLE}.campaign_id ;;
   }
   measure: total_comments {
-    type: number
+    type: sum
     sql: ${TABLE}.comments ;;
   }
   dimension_group: engagement {
@@ -20,7 +20,7 @@ view: social_media_engagement {
     sql: ${TABLE}.engagement_id ;;
   }
   measure: total_likes {
-    type: number
+    type: sum
     sql: ${TABLE}.likes ;;
   }
   dimension: post_id {
@@ -28,7 +28,7 @@ view: social_media_engagement {
     sql: ${TABLE}.post_id ;;
   }
   measure: total_shares {
-    type: number
+    type: sum
     sql: ${TABLE}.shares ;;
   }
   measure: count {

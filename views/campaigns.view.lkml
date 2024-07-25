@@ -56,8 +56,8 @@ view: campaigns {
   }
 
   measure: campaign_duration_days {
-    type: number
-    sql: DATEDIFF(${end_date}, ${start_date}) ;;
+    type: sum
+    sql: DATETIME_DIFF(DATETIME((TIMESTAMP(${end_date} ))), DATETIME((TIMESTAMP(${start_date} ))), DAY) ;;
     label: "Campaign Duration (Days)"
   }
 
