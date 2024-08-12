@@ -1,5 +1,5 @@
 view: social_media_engagement {
-  sql_table_name: sqsh-developer-pocs.marketing_analytics.social_media_engagement ;;
+  sql_table_name: sqsh-developer-pocs.marketing_analytics.social_media_engagement_1 ;;
 
   dimension: campaign_id {
     primary_key: yes
