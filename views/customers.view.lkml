@@ -13,7 +13,7 @@ view: customers {
   }
   dimension: first_name {
     type: string
-    sql: ${TABLE}.first_name ;;
+    sql: concat(${TABLE}.first_name || ' ' || ${TABLE}.last_name)  ;;
   }
   dimension_group: join {
     type: time
@@ -22,13 +22,13 @@ view: customers {
     datatype: date
     sql: ${TABLE}.join_date ;;
   }
-  dimension: last_name {
-    type: string
-    sql: ${TABLE}.last_name ;;
-  }
+  # dimension: last_name {
+  #   type: string
+  #   sql: ${TABLE}.last_name ;;
+  # }
   measure: count {
     type: count
-    drill_fields: [customer_id, last_name, first_name, interactions.count, transactions.count]
+    drill_fields: [customer_id, first_name, interactions.count, transactions.count]
   }
   measure: customer_count{
     type: number
