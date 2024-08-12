@@ -4,7 +4,7 @@ view: social_media_engagement {
   dimension: campaign_id {
     primary_key: yes
     type: number
-    sql: distinct ${TABLE}.campaign_id ;;
+    sql: ${TABLE}.campaign_id ;;
   }
   measure: total_comments {
     type: sum
