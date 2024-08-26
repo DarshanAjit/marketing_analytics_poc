@@ -2,7 +2,7 @@
 view: pdt {
   derived_table: {
     datagroup_trigger: looker_poc_pdt
-    sql: SELECT * FROM `sqsh-developer-pocs.marketing_analytics.campaigns` ;;
+    sql: SELECT * FROM `{{_user_attributes['database']}}.campaigns` ;;
 
   }
 
