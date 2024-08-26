@@ -1,7 +1,9 @@
 
 view: pdt {
   derived_table: {
+    datagroup_trigger: looker_poc_pdt
     sql: SELECT * FROM `sqsh-developer-pocs.marketing_analytics.campaigns` ;;
+
   }
 
   measure: count {

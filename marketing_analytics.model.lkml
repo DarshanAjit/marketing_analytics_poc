@@ -10,8 +10,12 @@ include: "/views/*.view.lkml"                # include all views in the views/ f
 
 datagroup: looker_poc_pdt {
   max_cache_age: "1 hours"
-  sql_trigger: SELECT max(start_date) FROM campaigns ;;
+  # sql_trigger:SELECT CURRENT_TIMESTAMP() ;;
   interval_trigger: "1 hours"
+}
+
+explore: pdt {
+  persist_with: looker_poc_pdt
 }
 
 explore: customers {
