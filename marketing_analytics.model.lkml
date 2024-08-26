@@ -10,7 +10,7 @@ include: "/views/*.view.lkml"                # include all views in the views/ f
 
 datagroup: looker_poc_pdt {
   max_cache_age: "1 hours"
-  # sql_trigger:SELECT CURRENT_TIMESTAMP() ;;
+  sql_trigger:SELECT CURRENT_TIMESTAMP() ;;
   interval_trigger: "1 hours"
 }
 
