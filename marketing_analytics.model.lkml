@@ -7,6 +7,13 @@ include: "/views/*.view.lkml"                # include all views in the views/ f
 # # Select the views that should be a part of this model,
 # # and define the joins that connect them together.
 #
+
+datagroup: looker_poc_pdt {
+  max_cache_age: "1 hours"
+  sql_trigger: SELECT max(start_date) FROM campaigns ;;
+  interval_trigger: "1 hours"
+}
+
 explore: customers {
 
   access_filter: {
