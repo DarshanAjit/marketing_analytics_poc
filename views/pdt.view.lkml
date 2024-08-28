@@ -3,7 +3,7 @@ view: pdt {
   derived_table: {
     datagroup_trigger: looker_poc_pdt
      increment_key: "start_date"
-    sql: SELECT * FROM `squareshiftpdt.{{_user_attributes['database']}}_campaigns` ;;
+    sql: SELECT * FROM `squareshiftpdt.marketing_analytics_campaigns` ;;
 
   }
 
