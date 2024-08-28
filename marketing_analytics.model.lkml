@@ -14,6 +14,9 @@ datagroup: looker_poc_pdt {
   interval_trigger: "1 hours"
 }
 
+explore: nestedbigquery_tmp {}
+
+
 explore: pdt {
   persist_with: looker_poc_pdt
 }
