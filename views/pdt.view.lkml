@@ -27,8 +27,10 @@ view: pdt {
     sql: ${TABLE}.type ;;
   }
 
-  dimension: start_date {
-    type: date
+  dimension_group: start {
+    type: time
+    timeframes: [raw, date, week, month, quarter, year]
+    convert_tz: no
     datatype: date
     sql: ${TABLE}.start_date ;;
   }
@@ -49,7 +51,6 @@ view: pdt {
       campaign_id,
       name,
       type,
-      start_date,
       end_date,
       budget
     ]
