@@ -22,6 +22,7 @@ explore: pdt {
 }
 
 explore: customers {
+  label: "Marketing Analysis"
 
   access_filter: {
     field: stores.location

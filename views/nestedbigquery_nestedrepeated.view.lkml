@@ -1,5 +1,6 @@
 # Un-hide and use this explore, or copy the joins into another explore, to get all the fully nested relationships from this view
 explore: nestedbigquery_nestedrepeated {
+  label: "Nested / Repeated Bigquery Sample Explore"
   hidden: no
     join: nestedbigquery_nestedrepeated__addresses {
       view_label: "Nestedbigquery Nestedrepeated: Addresses"
